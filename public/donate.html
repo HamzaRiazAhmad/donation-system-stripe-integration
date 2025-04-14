@@ -245,22 +245,37 @@
     <script>
         const stripe = Stripe("pk_test_51RBwd44JaRyxbe93c4evWjgRGftH0cZqC5YYramIBdElEnKS5k6qIFvq87UvGYFoVChwpBW1t9aNuIEdUOvzuPNP00tgOehdHo");
         const elements = stripe.elements();
-        const card = elements.create("card");
+    
+        // 👇 Added style for white placeholder
+        const style = {
+            base: {
+                color: '#ffffff', // White input text
+                '::placeholder': {
+                    color: '#ffffff' // White placeholder text
+                }
+            },
+            invalid: {
+                color: '#ff0000', // Red for invalid input
+            }
+        };
+    
+        // 👇 Pass style here
+        const card = elements.create("card", { style: style });
         card.mount("#card-element");
-
+    
         const form = document.getElementById("donation-form");
         form.addEventListener("submit", async function (e) {
             e.preventDefault();
             const amount = document.getElementById("donation-amount").value;
-
+    
             const response = await fetch("/create-payment-intent", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ amount })
             });
-
+    
             const { clientSecret } = await response.json();
-
+    
             const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
                 payment_method: {
                     card: card,
@@ -270,7 +285,7 @@
                     },
                 },
             });
-
+    
             if (error) {
                 document.getElementById("card-errors").textContent = error.message;
             } else if (paymentIntent.status === "succeeded") {
@@ -280,7 +295,7 @@
             }
         });
     </script>
+    
 
 </body>
-
 </html>
