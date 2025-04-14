@@ -4,7 +4,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "stripe": "^18.0.0"
+    "stripe": "^18.0.0",
+    "stripe_donation_app": "file:"
   },
   "name": "stripe_donation_app",
   "version": "1.0.0",
