@@ -162,7 +162,6 @@ a:focus {
     left: 0;
     z-index: 3;
     border-bottom: 1px solid rgba(255, 255, 255, .3);
-    background: #20212B !important;
 }
 
 .top-bar .top-bar-left {
@@ -246,8 +245,6 @@ a:focus {
     position: relative;
     transition: .5s;
     z-index: 999;
-    background: #000000!important;
-    /* position: fixed; */
 }
 
 .navbar.nav-sticky {
@@ -256,7 +253,6 @@ a:focus {
     width: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
     transition: .5s;
-    background: #000000!important;
 }
 
 .navbar .navbar-brand {
