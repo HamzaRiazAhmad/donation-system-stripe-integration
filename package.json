@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
@@ -7,7 +8,8 @@
     "mongoose": "^8.13.2",
     "nodemailer": "^6.10.1",
     "stripe": "^18.0.0",
-    "stripe_donation_app": "file:"
+    "stripe_donation_app": "file:",
+    "twilio": "^5.5.2"
   },
   "name": "stripe_donation_app",
   "version": "1.0.0",
