@@ -998,7 +998,16 @@ a:focus {
     color: #ffffff;
 }
 
-
+@media (max-width: 575.98px) {
+    .section-header h2 {
+        font-size: 28px;
+    }
+}
+@media (max-width: 575.98px) {
+    .section-header h2 {
+        font-size: 21px;
+    }
+}
 
 /*******************************/
 /********** Facts CSS **********/
