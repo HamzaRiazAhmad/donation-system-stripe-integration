@@ -246,7 +246,7 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <script>
+    <!-- <script>
         const stripe = Stripe("pk_test_51RBwd44JaRyxbe93c4evWjgRGftH0cZqC5YYramIBdElEnKS5k6qIFvq87UvGYFoVChwpBW1t9aNuIEdUOvzuPNP00tgOehdHo");
         const elements = stripe.elements();
     
@@ -298,8 +298,58 @@
                 card.clear();
             }
         });
-    </script>
+    </script> -->
     
+    <script>
+        const stripe = Stripe("pk_test_51RBwd44JaRyxbe93c4evWjgRGftH0cZqC5YYramIBdElEnKS5k6qIFvq87UvGYFoVChwpBW1t9aNuIEdUOvzuPNP00tgOehdHo");
+        const elements = stripe.elements();
 
+        const style = {
+            base: {
+                color: '#ffffff',
+                '::placeholder': {
+                    color: '#ffffff'
+                }
+            },
+            invalid: {
+                color: '#ff0000',
+            }
+        };
+
+        const card = elements.create("card", { style: style });
+        card.mount("#card-element");
+
+        const form = document.getElementById("donation-form");
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const amount = document.getElementById("donation-amount").value;
+
+            const response = await fetch("/create-payment-intent", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ amount })
+            });
+
+            const { clientSecret } = await response.json();
+
+            const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: document.getElementById("donor-name").value,
+                        email: document.getElementById("donor-email").value,
+                    },
+                },
+            });
+
+            if (error) {
+                document.getElementById("card-errors").textContent = error.message;
+            } else if (paymentIntent.status === "succeeded") {
+                alert("🎉 Thank you for your donation!");
+                form.reset();
+                card.clear();
+            }
+        });
+    </script>
 </body>
 </html>
