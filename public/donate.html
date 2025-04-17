@@ -85,7 +85,7 @@
                             <a href="terms.html" class="dropdown-item">Terms & Conditions</a>
                             <a href="policy.html" class="dropdown-item">Cookies Policy</a>
                         </div>
-                        
+
                     </div>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
@@ -112,8 +112,8 @@
     <!-- Page Header End -->
 
 
-     <!-- Donate Start -->
-     <div class="container">
+    <!-- Donate Start -->
+    <div class="container">
         <div class="donate" data-parallax="scroll" data-image-src="img/donate.jpg">
             <div class="row align-items-center">
                 <div class="col-lg-7">
@@ -246,76 +246,23 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <!-- <script>
-        const stripe = Stripe("pk_test_51RBwd44JaRyxbe93c4evWjgRGftH0cZqC5YYramIBdElEnKS5k6qIFvq87UvGYFoVChwpBW1t9aNuIEdUOvzuPNP00tgOehdHo");
-        const elements = stripe.elements();
-    
-        // 👇 Added style for white placeholder
-        const style = {
-            base: {
-                color: '#ffffff', // White input text
-                '::placeholder': {
-                    color: '#ffffff' // White placeholder text
-                }
-            },
-            invalid: {
-                color: '#ff0000', // Red for invalid input
-            }
-        };
-    
-        // 👇 Pass style here
-        const card = elements.create("card", { style: style });
-        card.mount("#card-element");
-    
-        const form = document.getElementById("donation-form");
-        form.addEventListener("submit", async function (e) {
-            e.preventDefault();
-            const amount = document.getElementById("donation-amount").value;
-    
-            const response = await fetch("/create-payment-intent", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ amount })
-            });
-    
-            const { clientSecret } = await response.json();
-    
-            const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
-                payment_method: {
-                    card: card,
-                    billing_details: {
-                        name: document.getElementById("donor-name").value,
-                        email: document.getElementById("donor-email").value,
-                    },
-                },
-            });
-    
-            if (error) {
-                document.getElementById("card-errors").textContent = error.message;
-            } else if (paymentIntent.status === "succeeded") {
-                alert("🎉 Thank you for your donation!");
-                form.reset();
-                card.clear();
-            }
-        });
-    </script> -->
-    
     <script>
         const stripe = Stripe("pk_test_51RBwd44JaRyxbe93c4evWjgRGftH0cZqC5YYramIBdElEnKS5k6qIFvq87UvGYFoVChwpBW1t9aNuIEdUOvzuPNP00tgOehdHo");
         const elements = stripe.elements();
 
         const style = {
             base: {
-                color: '#ffffff',
+                color: '#ffffff', 
                 '::placeholder': {
-                    color: '#ffffff'
+                    color: '#ffffff' 
                 }
             },
             invalid: {
-                color: '#ff0000',
+                color: '#ff0000', 
             }
         };
 
+        // 👇 Pass style here
         const card = elements.create("card", { style: style });
         card.mount("#card-element");
 
