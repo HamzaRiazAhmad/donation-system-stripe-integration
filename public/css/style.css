@@ -333,7 +333,10 @@ a:focus {
         box-shadow: none;
     }
 }
-
+.navbar .navbar-brand img {
+    max-width: 100%;
+    max-height: 52px;
+}
 
 /*******************************/
 /********** Hero CSS ***********/
