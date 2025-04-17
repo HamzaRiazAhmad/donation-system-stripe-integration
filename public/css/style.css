@@ -412,6 +412,7 @@ a:focus {
     text-align: center;
     font-size: 20px;
     margin-bottom: 25px;
+    padding: 0 10px;
 }
 
 .carousel .carousel-btn .btn.btn-custom {
