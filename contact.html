@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <title>Contact Us | Help for Kids</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free Website Template" name="keywords">
-    <meta content="Free Website Template" name="description">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3495440383849143"
     crossorigin="anonymous"></script>
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
-
+<!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3495440383849143" crossorigin="anonymous"></script>
+    
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -86,7 +86,6 @@
                             <a href="terms.html" class="dropdown-item">Terms & Conditions</a>
                             <a href="policy.html" class="dropdown-item">Cookies Policy</a>
                         </div>
-                        
                     </div>
                     <a href="contact.html" class="nav-item nav-link active">Contact</a>
                 </div>
@@ -94,7 +93,6 @@
         </div>
     </div>
     <!-- Nav Bar End -->
-
 
     <!-- Page Header Start -->
     <div class="page-header">
@@ -111,7 +109,6 @@
         </div>
     </div>
     <!-- Page Header End -->
-
 
     <!-- Contact Start -->
     <div class="contact">
@@ -155,9 +152,6 @@
     </div>
     <!-- Contact End -->
 
-
-
-
     <!-- Back to top button -->
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
@@ -178,9 +172,10 @@
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
-
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- EmailJS & WhatsApp Integration -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
         (function () {
@@ -202,7 +197,7 @@
                 message: message
             };
 
-            // 1. EmailJS
+            // Send email using EmailJS
             emailjs.send("service_39sdt3i", "template_qokfa7e", templateParams)
                 .then(function (response) {
                     console.log("✅ EmailJS success", response);
@@ -210,40 +205,13 @@
                     console.error("❌ EmailJS error", error);
                 });
 
-            // 2. MongoDB via your Express backend
-            fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, email, message })
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log("✅ Contact saved to DB", data);
-                })
-                .catch(err => {
-                    console.error("❌ Error saving contact to DB", err);
-                });
+            // Send message to WhatsApp
+            const whatsappMessage = `Hello, I need help with: ${subject}\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
+            const whatsappLink = `https://wa.me/9230012345678?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappLink, '_blank');
 
-            // 3. Send to WhatsApp (Optional - call backend API here if you want)
-            fetch('/api/whatsapp', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, email, subject, message })
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log("✅ WhatsApp sent", data);
-                    alert("Message sent successfully!");
-                    document.getElementById("contactForm").reset();
-                })
-                .catch(err => {
-                    console.error("❌ WhatsApp error", err);
-                    alert("Message sent, but WhatsApp notification failed.");
-                });
+            alert("Message sent successfully!");
+            document.getElementById("contactForm").reset();
         });
     </script>
 
