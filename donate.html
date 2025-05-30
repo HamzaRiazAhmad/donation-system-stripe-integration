@@ -246,57 +246,71 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <script>
-        const stripe = Stripe("pk_test_51RBwd44JaRyxbe93c4evWjgRGftH0cZqC5YYramIBdElEnKS5k6qIFvq87UvGYFoVChwpBW1t9aNuIEdUOvzuPNP00tgOehdHo");
-        const elements = stripe.elements();
+   <script>
+    const stripe = Stripe("pk_test_51RBwd44JaRyxbe93c4evWjgRGftH0cZqC5YYramIBdElEnKS5k6qIFvq87UvGYFoVChwpBW1t9aNuIEdUOvzuPNP00tgOehdHo");
+    const elements = stripe.elements();
 
-        const style = {
-            base: {
-                color: '#ffffff', 
-                '::placeholder': {
-                    color: '#ffffff' 
-                }
-            },
-            invalid: {
-                color: '#ff0000', 
+    const style = {
+        base: {
+            color: '#ffffff',
+            '::placeholder': {
+                color: '#ffffff'
             }
-        };
+        },
+        invalid: {
+            color: '#ff0000',
+        }
+    };
 
-        // 👇 Pass style here
-        const card = elements.create("card", { style: style });
-        card.mount("#card-element");
+    const card = elements.create("card", { style: style });
+    card.mount("#card-element");
 
-        const form = document.getElementById("donation-form");
-        form.addEventListener("submit", async function (e) {
-            e.preventDefault();
-            const amount = document.getElementById("donation-amount").value;
+    const form = document.getElementById("donation-form");
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
-            const response = await fetch("/create-payment-intent", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ amount })
-            });
+        const name = document.getElementById("donor-name").value;
+        const email = document.getElementById("donor-email").value;
+        const amount = document.getElementById("donation-amount").value;
 
-            const { clientSecret } = await response.json();
-
-            const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
-                payment_method: {
-                    card: card,
-                    billing_details: {
-                        name: document.getElementById("donor-name").value,
-                        email: document.getElementById("donor-email").value,
-                    },
-                },
-            });
-
-            if (error) {
-                document.getElementById("card-errors").textContent = error.message;
-            } else if (paymentIntent.status === "succeeded") {
-                alert("🎉 Thank you for your donation!");
-                form.reset();
-                card.clear();
-            }
+        const response = await fetch("/create-payment-intent", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ amount })
         });
-    </script>
+
+        const { clientSecret } = await response.json();
+
+        const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: card,
+                billing_details: {
+                    name: name,
+                    email: email,
+                },
+            },
+        });
+
+        if (error) {
+            document.getElementById("card-errors").textContent = error.message;
+        } else if (paymentIntent.status === "succeeded") {
+            // ✅ Donation successful message
+            alert("🎉 Thank you for your donation!");
+
+            // ✅ Send WhatsApp message
+            const whatsappMessage = `https://wa.me/923113640328?text=${encodeURIComponent(
+                `✅ New Donation Received!\n\n👤 Name: ${name}\n📧 Email: ${email}\n💰 Amount: $${amount}`
+            )}`;
+
+            // Optional: Clear form
+            form.reset();
+            card.clear();
+
+            // ✅ Redirect to WhatsApp
+            window.location.href = whatsappMessage;
+        }
+    });
+</script>
+
 </body>
 </html>
