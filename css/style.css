@@ -232,9 +232,9 @@ a:focus {
 @media (min-width: 992px) {
     .top-bar {
         padding: 0 60px;
+        background: #000000;
     }
 }
-
 
 /**********************************/
 /*********** Nav Bar CSS **********/
@@ -295,7 +295,7 @@ a:focus {
         width: 100%;
         top: 45px;
         padding: 20px 60px;
-        /* background: transparent !important; */
+        background: #000000;
         border-bottom: 1px solid rgba(255, 255, 255, .3);
         z-index: 9;
     }
