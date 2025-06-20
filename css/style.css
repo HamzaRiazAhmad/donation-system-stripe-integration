@@ -251,7 +251,6 @@ a:focus {
     width: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
     transition: .5s;
-    background-color: red !important;
 }
 
 .navbar .navbar-brand {
@@ -296,7 +295,7 @@ a:focus {
         width: 100%;
         top: 45px;
         padding: 20px 60px;
-        background: transparent !important;
+        /* background: transparent !important; */
         border-bottom: 1px solid rgba(255, 255, 255, .3);
         z-index: 9;
     }
