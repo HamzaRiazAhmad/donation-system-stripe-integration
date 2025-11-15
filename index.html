@@ -941,13 +941,46 @@
                         </div>
                     </div>
                 </div>
-                <!-- Other footer columns -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-link">
+                        <h2>Popular Links</h2>
+                        <a href="">About Us</a>
+                        <a href="">Contact Us</a>
+                        <a href="">Popular Causes</a>
+                        <a href="">Upcoming Events</a>
+                        <a href="">Latest Blog</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-link">
+                        <h2>Useful Links</h2>
+                        <a href="">Terms of use</a>
+                        <a href="">Privacy policy</a>
+                        <a href="">Cookies</a>
+                        <a href="">Help</a>
+                        <a href="">FQAs</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-newsletter">
+                        <h2>Newsletter</h2>
+                        <form>
+                            <input class="form-control" placeholder="Email goes here">
+                            <button class="btn btn-custom">Submit</button>
+                            <label>Don't worry, we don't spam!</label>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="container copyright">
             <div class="row">
-                <div class="col-md-6"><p>&copy; <a href="#">Help for Kids</a>, All Right Reserved.</p></div>
-                <div class="col-md-6"><p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p></div>
+                <div class="col-md-6">
+                    <p>&copy; <a href="#">Help for Kids</a>, All Right Reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                </div>
             </div>
         </div>
     </div>
@@ -957,17 +990,21 @@
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
     <!-- Pre Loader -->
-    <div id="loader" class="show"><div class="loader"></div></div>
-
-    <!-- AdSense Manual Unit -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3495440383849143"
-         data-ad-slot="2018854714"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
+    <div id="loader" class="show">
+        <div class="loader"></div>
+    </div>
+    <!-- External Ad Network -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3495440383849143"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-73+ed+2i-1n-4w"
+     data-ad-client="ca-pub-3495440383849143"
+     data-ad-slot="2018854714"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
@@ -977,15 +1014,28 @@
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/parallax/parallax.min.js"></script>
 
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
     <!-- Cookie Consent JS -->
-    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
     <script>
         window.cookieconsent.initialise({
-            "palette": { "popup": { "background": "#000" }, "button": { "background": "#f1d600" } }
+            "palette": {
+                "popup": { "background": "#000" },
+                "button": { "background": "#f1d600" }
+            },
+            "theme": "classic",
+            "content": {
+                "message": "This website uses cookies to ensure you get the best experience on our website.",
+                "dismiss": "Got it!",
+                "link": "Learn more",
+                "href": "policy.html"
+            }
         });
     </script>
-
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>
+
 </html>
