@@ -14,9 +14,10 @@
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
-    <!-- Google AdSense (Load once) -->
+    <!-- Google AdSense Auto Ads (Already Active) -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3495440383849143"
         crossorigin="anonymous"></script>
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -34,6 +35,28 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Custom Ad Styling -->
+    <style>
+        .ad-container {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        .ad-sidebar {
+            margin-bottom: 20px;
+        }
+        .ad-responsive {
+            max-width: 100%;
+            height: auto;
+        }
+        @media (max-width: 768px) {
+            .ad-sidebar { display: none; }
+        }
+    </style>
 </head>
 
 <body>
@@ -68,14 +91,6 @@
     </div>
     <!-- Top Bar End -->
 
-    <!-- Native Ad (Before Footer) -->
-    <div class="container-fluid text-center my-4">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3495440383849143"
-            data-ad-slot="3713150736" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
     <!-- Nav Bar Start -->
     <div class="navbar navbar-expand-lg bg-dark navbar-dark" style="background-color: rgb(255, 0, 0);">
         <div class="container-fluid">
@@ -111,7 +126,23 @@
     </div>
     <!-- Nav Bar End -->
 
-  
+    <!-- === AD 1: Above Carousel (Adsteraa 300x250) === -->
+    <div class="container-fluid ad-container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : 'f4fe8f130ea34d12bb6cea99de115995',
+                        'format' : 'iframe',
+                        'height' : 300,
+                        'width' : 160,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/f4fe8f130ea34d12bb6cea99de115995/invoke.js"></script>
+            </div>
+        </div>
+    </div>
 
     <!-- Carousel Start -->
     <div class="carousel">
@@ -136,6 +167,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Other carousel items remain same -->
                 <div class="carousel-item">
                     <div class="carousel-img">
                         <img src="img/carousel-2.jpg" alt="Helping hand">
@@ -179,7 +211,6 @@
     </div>
     <!-- Carousel End -->
 
-
     <!-- Video Modal Start-->
     <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -189,7 +220,6 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
-                    <!-- 16:9 aspect ratio -->
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
                             allow="autoplay" title="Charity video"></iframe>
@@ -200,10 +230,28 @@
     </div>
     <!-- Video Modal End -->
 
+    <!-- === AD 2: After Carousel (Horizontal) === -->
+    <div class="container ad-container">
+        <script async="async" data-cfasync="false" src="//pl26184309.effectivegatecpm.com/12/28/aa/1228aa26ff08affb12d95de2928af0e0.js"></script>
+    </div>
+
     <!-- About Start -->
     <div class="about">
         <div class="container">
             <div class="row align-items-center">
+                <!-- Sidebar Ads (Desktop Only) -->
+                <div class="col-lg-3 d-none d-lg-block">
+                    <div class="ad-sidebar">
+                        <div class="ad-container">
+                            <script async="async" data-cfasync="false" src="//pl26236920.effectivegatecpm.com/35413b569d264ab60d44898bd40fca18/invoke.js"></script>
+                            <div id="container-35413b569d264ab60d44898bd40fca18"></div>
+                        </div>
+                        <div class="ad-container mt-3">
+                            <script type='text/javascript' src='//pl26183961.effectivegatecpm.com/54/e4/45/54e4454c51b6128ee6840f0e9637d77c.js'></script>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-lg-6">
                     <div class="about-img" data-parallax="scroll" data-image-src="img/about.jpg"></div>
                 </div>
@@ -255,6 +303,12 @@
         </div>
     </div>
     <!-- About End -->
+
+    <!-- === AD 3: Before Services === -->
+    <div class="container ad-container">
+        <script async="async" data-cfasync="false" src="//pl26184289.effectivegatecpm.com/1cde7bf887df7b3d5b115bc502c11e88/invoke.js"></script>
+        <div id="container-1cde7bf887df7b3d5b115bc502c11e88"></div>
+    </div>
 
     <!-- Service Start -->
     <div class="service">
@@ -340,6 +394,12 @@
         </div>
     </div>
     <!-- Service End -->
+
+    <!-- === AD 4: Footer Ad (Sticky-like) === -->
+    <div class="container ad-container">
+        <script async="async" data-cfasync="false" src="//pl26184295.effectivegatecpm.com/99e4b40243df623254389eb7562e298a/invoke.js"></script>
+        <div id="container-99e4b40243df623254389eb7562e298a"></div>
+    </div>
 
     <!-- Native Ad (Before Footer) -->
     <div class="container-fluid text-center my-4">
